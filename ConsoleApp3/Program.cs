@@ -10,28 +10,31 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            bool t = true;
-            while (t)
+            int a;
+            double b;
+            long c;
+            string g;
+            do
             {
-                try
-                {
-
-
-                    Console.WriteLine($"Введите значение типа int");
-                    int a = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine($"Введите значение типа double");
-                    double b = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine($"Введите значение типа long");
-                    long c = Convert.ToInt64(Console.ReadLine());
-                    Console.WriteLine("a ={0}, b={1}, c={2}", a, b, c);         
-                 }
-                catch
-                {
-                    Console.WriteLine($"Неправильно введенная перемнная");
-                }
-                Console.WriteLine("\nPress \"q\" to exit or another key to continue: ");
-                t = Console.ReadKey().Key != ConsoleKey.Q;
+                Console.WriteLine("Введите значение int");
+                g = Console.ReadLine();
             }
+            while (!int.TryParse(g, out a));
+            do
+            {
+                Console.WriteLine("Введите значение double");
+                g = Console.ReadLine();
+            }
+            while (!double.TryParse(g, out b));
+            do
+            {
+                Console.WriteLine("Введите значение long");
+                g = Console.ReadLine();
+            }
+            while (!long.TryParse(g, out c));
+            Console.WriteLine($"a={0},b={1},c={2}", a, b, c);
+            Console.ReadKey();
+
         }
     }
 }
